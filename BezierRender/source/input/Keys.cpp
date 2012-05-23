@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////
+// Keys.cpp
+// Description:		Keyboard user input class
+// By:				Ben Woodhouse 
+// Date:			11/2002
+//////////////////////////////////////////////////////////////////////
+
+#include "..\stdafx.h"
+#include "Keys.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+std::vector<char> keyBuffer;
+
+Keys::Keys()
+{
+	for (int a=0;a<256;++a)
+	{
+		keys[a]=false;
+		oldKeys[a]=false;
+		keysRepeat[a]=false;
+	}
+}
+
+Keys::~Keys()
+{
+
+}
+
+void Keys::setOldKeys()
+{
+	for (int a=0;a<256;++a)
+	{
+		oldKeys[a]=keys[a];
+		keysRepeat[a]=false;
+	}
+}
